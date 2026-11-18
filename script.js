@@ -30,16 +30,27 @@ const myLibrary =[];
 
 
 
-function Book(title, author, pages, status, index){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-    this.index = 0;
-    this.info = function(){
-        return(`${this.title} by ${this.author}, ${this.pages}, ${this.status}`)
-    }
+// function Book(title, author, pages, status, index){
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.status = status;
+//     this.index = 0;
+//     this.info = function(){
+//         return(`${this.title} by ${this.author}, ${this.pages}, ${this.status}`)
+//     }
 
+// }
+
+class Book {
+    constructor(title, author, pages, status, index){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+        this.index = 0;
+
+    }
 }
 
 function getStatus (checkedValue){
@@ -55,7 +66,7 @@ for(let i=0; inputElements[i]; ++i){
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read');
 
-console.log(theHobbit.info());
+console.log(theHobbit);
 
 function addBookToLibrary() {
     const addBook = new Book(title.value, author.value, pages.value, getStatus(),);
@@ -123,7 +134,7 @@ addBtn.addEventListener("click", () => {
     addBookToLibrary();
     console.log(myLibrary);
     // displayBooks();
-})
+});
 
 newBookBtn.addEventListener("click", () => {
     if(bookForm.style.visibility === "hidden"){
@@ -131,7 +142,7 @@ newBookBtn.addEventListener("click", () => {
     } else if(bookForm.style.visibility === "visible"){
         bookForm.style.visibility = "hidden";
     }
-})
+});
 
 // displayBtn.addEventListener("click", () => {
 //     bookCard.textContent = theHobbit.info();
